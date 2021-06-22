@@ -10,7 +10,7 @@ const inquirer = require('inquirer');
 
 const teamProfileArray = [];
 
-const addManager = () => {
+const addTeamManager = () => {
     return inquirer.prompt ([
     {
         type: 'input',
@@ -173,3 +173,26 @@ const addEmployee = () => {
         }
     })
 };
+
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        }else {
+            console.log("Your team profile has beem created successfully!")
+        }
+    })
+};
+
+addTeamManager ()
+.then(addEmployee)
+.then(teamProfileArray => {
+    return generateHTML(teamProfileArray);
+})
+.then(pageHTML => {
+    return writeFile(pageHTML);
+})
+.catch(err => {
+    console.log(err);
+});
