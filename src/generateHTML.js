@@ -1,5 +1,5 @@
 //create Manager's Card
-const generateManager= function (Manager) {
+const generateManager = function (manager) {
     return `
     <div class="card">
         <div class="card-divder">
@@ -69,13 +69,13 @@ generateHTML = (data) => {
         if (role === "Engineer") {
             const engineerInfo = generateEngineer(employee);
 
-            pageArray.push(engineerInfo);
+            cardArray.push(engineerInfo);
         }
         //Invoke the Intern function
         if (role === "Intern") {
             const internInfo = generateIntern(employee);
 
-            pageArray.push(internInfo);
+            cardArray.push(internInfo);
         }    
     }
 
@@ -113,7 +113,7 @@ const generateTeamHTML = function (employeeInfo) {
     
         <div id="main" class="grid-x main-section">
             <div class="row small-up-2 medium-up-3 card-container">
-                ${employeeCards}
+                ${employeeInfo}
             </div>
         </div>
 

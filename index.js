@@ -30,11 +30,11 @@ const addTeamManager = () => {
         name: 'id',
         message: "Please enter the manager id",
         validate: nameInput => {
-            if (isNAN(nameInput)) {
+            if (isNaN(nameInput)) {
                 console.log ("Please enter a manager ID!");
                 return false;
             } else { 
-                return ture;
+                return true;
             }
         }
     },
@@ -56,11 +56,10 @@ const addTeamManager = () => {
         }
     },
 
-])
-
+    ])
     .then(managerInput => {
-        const {name, id, email, officeNumber } = managerInput;
-        const manager = new Manager(name, id, email, officeNumber);
+        const { name, id, email, officeNumber } = managerInput;
+        const manager = new Manager (name, id, email, officeNumber);
 
         teamProfileArray.push(manager);
     })
@@ -94,11 +93,11 @@ const addEmployee = () => {
             name: 'id',
             message: "Please enter the employee's id",
             validate: nameInput => {
-                if (isNAN(nameInput)) {
-                    console.log ("Please enter a employee's ID!");
+                if (isNaN(nameInput)) {
+                    console.log ("Please enter a employee's ID!")
                     return false;
                 } else { 
-                    return ture;
+                    return true;
                 }
             }
         },
@@ -186,13 +185,13 @@ const writeFile = data => {
 };
 
 addTeamManager ()
-.then(addEmployee)
-.then(teamProfileArray => {
-    return generateHTML(teamProfileArray);
-})
-.then(pageHTML => {
-    return writeFile(pageHTML);
-})
-.catch(err => {
-    console.log(err);
-});
+    .then(addEmployee)
+    .then(teamProfileArray => {
+        return generateHTML(teamProfileArray);
+    })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    })
+    .catch(err => {
+        console.log(err);
+    });
