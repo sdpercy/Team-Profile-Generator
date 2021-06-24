@@ -10,7 +10,7 @@ const inquirer = require('inquirer');
 
 const teamProfileArray = [];
 
-const addTeamManager = () => {
+const addManager = () => {
     return inquirer.prompt ([
     {
         type: 'input',
@@ -55,6 +55,19 @@ const addTeamManager = () => {
         
         }
     },
+    {
+        type: 'input',
+        name: 'officeNumber',
+        message:"Enter manager's office Number.",
+        validate: nameInput => {
+            if (isNaN(nameInput)) {
+                console.log ("Please enter an office number!");
+                return false;
+            } else { 
+                return true;
+            }
+        }
+    },
 
     ])
     .then(managerInput => {
@@ -62,6 +75,7 @@ const addTeamManager = () => {
         const manager = new Manager (name, id, email, officeNumber);
 
         teamProfileArray.push(manager);
+        console.log(manager);
     })
 };
 
@@ -184,7 +198,7 @@ const writeFile = data => {
     })
 };
 
-addTeamManager ()
+addManager ()
     .then(addEmployee)
     .then(teamProfileArray => {
         return generateHTML(teamProfileArray);
