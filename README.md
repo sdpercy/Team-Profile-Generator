@@ -34,7 +34,7 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
   ## Tests
-  To run the tests you need to install Jest. Run npm install ** --save-dev jest ** from the command prompt in the project directory.  Add the following section to your package.json:
+  To run the tests you need to install Jest. Run npm install **--save-dev jest** from the command prompt in the project directory.  Add the following section to your package.json:
 
   >  {
   >     "scripts": {
@@ -42,7 +42,7 @@
   >      }
   > }
 
-  From command prompt enter ** npm test **.  There are 4 test file, Employee.test.js, Engineer.test.js, Developer.test.js, Intern.test.js and Manager.test.js.
+  From command prompt enter **npm test**.  There are 4 test file, Employee.test.js, Engineer.test.js, Developer.test.js, Intern.test.js and Manager.test.js.
 
   ## Questions
 
