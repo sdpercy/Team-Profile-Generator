@@ -10,6 +10,7 @@ const inquirer = require('inquirer');
 
 const teamProfileArray = [];
 
+//------------------Manager prompts----------------------
 const addManager = () => {
     return inquirer.prompt ([
     {
@@ -67,8 +68,7 @@ const addManager = () => {
                 return true;
             }
         }
-    },
-
+    }
     ])
     .then(managerInput => {
         const { name, id, email, officeNumber } = managerInput;
@@ -78,7 +78,7 @@ const addManager = () => {
         console.log(manager);
     })
 };
-
+//------------------Employee prompts----------------------
 const addEmployee = () => {
     console.log(`Adding employee to the team`);
 
@@ -129,7 +129,6 @@ const addEmployee = () => {
                     console.log ("Please enter a vaild email address!");
                     return false;
                 }
-            
             }
         },
         {
@@ -172,9 +171,11 @@ const addEmployee = () => {
 
         if (role === "Engineer") {
             employee = new Engineer (name, id, email, github);
+            console.log (employee);
 
         } else if (role === "Intern") {
             employee = new Intern (name, id, email, school);
+            console.log (employee)
         }
 
         teamProfileArray.push(employee);
@@ -186,6 +187,8 @@ const addEmployee = () => {
         }
     })
 };
+
+//--------------------Generate HTML page--------------------------
 
 const writeFile = data => {
     fs.writeFile('./dist/index.html', data, err => {

@@ -1,6 +1,7 @@
 //create Manager's Card
 const generateManager = function (manager) {
     return `
+    <div class="column">
     <div class="card">
         <div class="card-divder">
             <h3>${manager.name}</h3>
@@ -12,21 +13,24 @@ const generateManager = function (manager) {
             <p class="office">Office Number: ${manager.officeNumber}
         </div>
     </div>
+    </div>
     `
 };
 //create Engineer's Card
 
 const generateEngineer = function (engineer) {
     return `
-    <div class="card">
-        <div class="card-divder">
-            <h3>${engineer.name}</h3>
-            <h4>Engineer</h4><span class="material-icons">engineering</span>
-        </div>
-        <div class="card-section">
-            <p class="id">ID: ${engineer.id}</p>
-            <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
-            <p class="github">GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
+    <div class="column">
+        <div class="card">
+            <div class="card-divder">
+                <h3>${engineer.name}</h3>
+                <h4>Engineer</h4><span class="material-icons">engineering</span>
+            </div>
+            <div class="card-section">
+                <p class="id">ID: ${engineer.id}</p>
+                <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
+                <p class="github">GitHub: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></p>
+            </div>
         </div>
     </div>
     `
@@ -36,15 +40,17 @@ const generateEngineer = function (engineer) {
 
 const generateIntern = function (intern){
     return `
-    <div class="card">
-        <div class="card-divder">
-            <h3>${intern.name}</h3>
-            <h4>Manager</h4><span class="material-icons">school</span>
-        </div>
-        <div class="card-section">
-            <p class="id">ID: ${intern.id}</p>
-            <p class="email">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
-            <p class="office">School: ${intern.school}</p>
+    <div class="column">
+        <div class="card">
+            <div class="card-divder">
+                <h3>${intern.name}</h3>
+                <h4>Manager</h4><span class="material-icons">school</span>
+            </div>
+            <div class="card-section">
+                <p class="id">ID: ${intern.id}</p>
+                <p class="email">Email: <a href="mailto:${intern.email}">${intern.email}</a></p>
+                <p class="office">School: ${intern.school}</p>
+            </div>
         </div>
     </div>
     `
@@ -59,6 +65,7 @@ generateHTML = (data) => {
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
         const role = employee.getRole();
+
         //Invoke the Manager function
         if (role === "Manager") {
             const managerInfo = generateManager(employee);
@@ -103,9 +110,9 @@ const generateTeamHTML = function (employeeInfo) {
         </head>
         <body>
         <div class="top-bar">
-            <div class="top-bar-left">
+            <div class="top-bar-center">
                 <ul class="header">
-                    <li class="header-text">${manager.id}</li>
+                    <li class="header-text">Team Profile</li>
                 </ul>
             </div>
         </div>
@@ -113,7 +120,7 @@ const generateTeamHTML = function (employeeInfo) {
     
         <div id="main" class="grid-x main-section">
             <div class="row small-up-2 medium-up-3 card-container">
-                ${employeeInfo}
+                    ${employeeInfo}
             </div>
         </div>
 
