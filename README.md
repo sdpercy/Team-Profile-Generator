@@ -17,6 +17,9 @@
   ## Description
   This is a command-line application that accepts user input.  You are prompted for team members and their information and the results
   will display an HTML file with formatted team roster based on user input.
+  
+  ![image](https://user-images.githubusercontent.com/78440638/123298826-77623b80-d4f3-11eb-8c6c-9cab6038bb31.png)
+
 
   
   ## Installation
